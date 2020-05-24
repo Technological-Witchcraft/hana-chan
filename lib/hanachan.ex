@@ -7,12 +7,13 @@ defmodule HanaChan do
 	end
 
 	def handle_event({:MESSAGE_CREATE, msg, _ws_state}) do
-		if String.starts_with?(msg.content, "/hana ") do
+		if String.starts_with?(msg.content, "/") do
 			length = String.length(msg.content)
-			if length > 6 do
-				[command | rest] = String.slice(msg.content, 6, length)
+			if length > 1 do
+				[command | rest] = String.slice(msg.content, 1, length)
 					|> String.split(" ", trim: true)
 				case command do
+					"role" -> HanaChan.RoleManager.command(rest, msg)
 					_ -> :ignore
 				end
 			end

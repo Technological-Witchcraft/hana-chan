@@ -19,7 +19,8 @@ defmodule Hanachan.MixProject do
 
 	defp deps do
 		[
-			{:nostrum, "~> 0.4.2"}
+			{:nostrum, "~> 0.4.2"},
+			{:yaml_elixir, "~> 2.4"}
 		]
 	end
 end
