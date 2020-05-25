@@ -51,14 +51,14 @@ defmodule HanaChan.RoleManager do
 
 	defp list(category, msg) when category == nil do
 		roles = get_roles()
-		message = "List of categories: ```\n#{Enum.join(Map.keys(roles), "\n")}```"
+		message = "List of categories: ```\n#{Enum.join(Map.keys(roles) |> Enum.sort, "\n")}```"
 		Api.create_message(msg.channel_id, message)
 	end
 
 	defp list(category, msg) do
 		roles = get_roles()
 		if roles[category] != nil do
-			message = "List of roles in \"#{category}\": ```\n#{Enum.join(Map.keys(roles[category]), "\n")}```"
+			message = "List of roles in \"#{category}\": ```\n#{Enum.join(Map.keys(roles[category]) |> Enum.sort, "\n")}```"
 			Api.create_message(msg.channel_id, message)
 		else
 			Api.create_message(msg.channel_id, "That category doesn't exist! Please use `/role list` to list the categories.")
