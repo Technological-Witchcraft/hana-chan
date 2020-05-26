@@ -26,11 +26,19 @@ defmodule HanaChan.RoleManager do
 		else
 			[subcmd | rest] = args
 			case subcmd do
-				"add" -> [category | role] = rest
-					role |> Enum.join(" ") |> add(category, msg)
+				"add" -> if rest != [] do
+						[category | role] = rest
+						role |> Enum.join(" ") |> add(category, msg)
+					else
+						help(msg)
+					end
 				"list" -> rest |> List.first |> list(msg)
-				"remove" -> [category | role] = rest
-					role |> Enum.join(" ") |> remove(category, msg)
+				"remove" -> if rest != [] do
+						[category | role] = rest
+						role |> Enum.join(" ") |> remove(category, msg)
+					else
+						help(msg)
+					end
 				_ -> help(msg)
 			end
 		end
