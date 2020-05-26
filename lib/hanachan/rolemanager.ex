@@ -13,7 +13,7 @@ defmodule HanaChan.RoleManager do
 						:ignore
 				end
 			else
-				Api.create_message(msg.channel_id, "That role doesn't exist! Please use `/role list #{category}` to list the categories.")
+				Api.create_message(msg.channel_id, "That role doesn't exist! Please use `/role list #{category}` to list the roles associated with that category.")
 			end
 		else
 			Api.create_message(msg.channel_id, "That category doesn't exist! Please use `/role list` to list the categories.")
@@ -77,7 +77,7 @@ defmodule HanaChan.RoleManager do
 						:ignore
 				end
 			else
-				Api.create_message(msg.channel_id, "That role doesn't exist! Please use `/role list #{category}` to list the categories.")
+				Api.create_message(msg.channel_id, "That role doesn't exist! Please use `/role list #{category}` to list the roles associated with that category.")
 			end
 		else
 			Api.create_message(msg.channel_id, "That category doesn't exist! Please use `/role list` to list the categories.")
