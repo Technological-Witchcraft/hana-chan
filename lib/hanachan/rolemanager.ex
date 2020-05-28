@@ -24,7 +24,7 @@ defmodule HanaChan.RoleManager do
 		help msg
 	end
 
-	def command([subcmd | rest], msg) when rest == [] or subcmd != "list" do
+	def command([subcmd | rest], msg) when rest == [] and subcmd != "list" do
 		help msg
 	end
 
